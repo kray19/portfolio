@@ -1,4 +1,11 @@
 <script setup>
+import rocketInterns from '../assets/rocket_interns.png'
+import rocketTeam from '../assets/rocket_team.png'
+import acxiomInterns from '../assets/acxiom_interns.png'
+import atuMoveIn from '../assets/ATU_moveinTeam2025.png'
+import rocketSoftwareLogo from 'src/assets/rocket_software_logo.jfif'
+import acxiomLogo from 'src/assets/acxiom_logo.jfif'
+import atuLogo from 'src/assets/arkansas_tech_university_logo.jfif'
 
 // ── Experience entries ───────────────────────────────────────
 const experience = [
@@ -16,8 +23,8 @@ const experience = [
       'Contributed to a documentation revival initiative, rewriting and modernizing outdated customer-facing content to improve clarity, accuracy, and usability.',
       'Represented the engineering team by presenting product functionality and day-to-day development work to an intern class.',   
     ],
-    logo: 'src/assets/rocket_software_logo.jfif', 
-    photos: ['src/assets/rocket_team.png', 'src/assets/rocket_interns.png']
+    logo: rocketSoftwareLogo, 
+    photos: [rocketTeam, rocketInterns]
   },
   {
     id: 2,
@@ -31,8 +38,8 @@ const experience = [
       'Supported mentor in managing and resolving support tickets, gaining hands-on exposure to enterprise production environments and incident management workflows.',
       'Utilized Jira for recording, tracking, and swiftly resolving issues and tasks.',
     ],
-    logo: 'src/assets/acxiom_logo.jfif',
-    photos: ['src/assets/acxiom_interns.png'],
+    logo: acxiomLogo,
+    photos: [acxiomInterns],
   },
   {
     id: 3,
@@ -47,7 +54,7 @@ const experience = [
       'Coordinated with external stakeholders to investigate data discrepancies, hypothesize root causes, and recommend corrective actions.',
       'Worked with CSV, Excel, and Visual Basic workflows within a collaborative, mentor-guided team environment.'
     ],
-    logo: 'src/assets/acxiom_logo.jfif',
+    logo: acxiomLogo,
   },
   {
     id: 4,
@@ -62,8 +69,8 @@ const experience = [
       'Trained new staff members on university systems, administrative workflows, and customer service procedures.',
       'Led departmental projects aimed at improving team processes and operational efficiency.',
     ],
-    logo: 'src/assets/arkansas_tech_university_logo.jfif',
-    photos: ['src/assets/ATU_2025.png'],
+    logo: atuLogo,
+    photos: [atuMoveIn],
   },
 ]
 

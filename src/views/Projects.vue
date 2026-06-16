@@ -1,4 +1,7 @@
 <script setup>
+import ASSDataPres from 'src/assets/ASSDataPres.jpg'
+import collegeMarket from 'src/assets/college_market_group.png'
+import housingModel from 'src/assets/heat_map_housing.png'
 const projects = [ 
   {
     id: 1,
@@ -7,7 +10,7 @@ const projects = [
     link: 'https://ieeexplore.ieee.org/document/11017141', 
     linkLabel: 'Read the Paper →',
     bg: '#D5C8CE',
-    image: 'src/assets/ASSDataPres.jpg',
+    image: ASSDataPres,
   },
   {
     id: 2,
@@ -16,7 +19,7 @@ const projects = [
     link: 'https://orc.library.atu.edu/atu_rs/2025/2025/35/',
     linkLabel: 'View Presentation →',
     bg: '#DDD5C8',
-    image: 'src/assets/college_market_group.png',
+    image: collegeMarket,
   },
   {
     id: 3,
@@ -25,7 +28,7 @@ const projects = [
     link: 'https://github.com/kray19/Melboune_Housing_Price',
     linkLabel: 'View Project →',
     bg: '#C8D0D5',
-    image: 'src/assets/heat_map_housing.png',
+    image: housingModel,
   },
 ]
 </script>
