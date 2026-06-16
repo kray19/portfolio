@@ -44,11 +44,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   top: 0; left: 0; right: 0;
   z-index: 100;
   transition: background 0.3s, box-shadow 0.3s;
-  background: transparent;
-}
-.nav.scrolled {
-  background: var(--white);
-  box-shadow: 0 1px 0 var(--warm);
+  background: var(--espresso);
 }
 .nav__inner {
   max-width: var(--max-w);
@@ -64,7 +60,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   font-size: 1.4rem;
   font-weight: 400;
   letter-spacing: 0.02em;
-  color: var(--espresso);
+  color: var(--cream);
 }
 .nav__links {
   display: flex;
@@ -75,7 +71,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--stone);
+  color: var(--cream);
   transition: color 0.2s;
 }
 .nav__links a:hover,
@@ -95,7 +91,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .nav__burger span {
   display: block;
   width: 22px; height: 1px;
-  background: var(--espresso);
+  background: var(--cream);
 }
 .nav__mobile {
   display: none;

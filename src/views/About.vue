@@ -561,8 +561,40 @@ const skillGroups = [
 }
 @media (max-width: 600px) {
   .timeline::before { left: 4.5rem; }
+  .timeline {
+    padding-left: 0;
+  }
+  .timeline::before {
+    display: none;
+  }
+  .timeline__item {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.25rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--warm);
+  }
+  .timeline__item:last-child {
+    border-bottom: none;
+  }
+  .timeline__year {
+    text-align: left;
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+  .timeline__dot {
+    display: none;
+  }
+  .timeline__title {
+    font-size: 1.1rem;
+  }
+  .timeline__desc {
+    font-size: 0.85rem;
+  }
 }
 @media (max-width: 768px) {
   .skills__groups { grid-template-columns: 1fr; }
 }
+
 </style>

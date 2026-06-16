@@ -355,4 +355,9 @@ const experience = [
   .entry__header { flex-direction: column; }
   .entry__photo { width: 60px; height: 60px; }
 }
+@media (max-width: 640px) {
+  .entry__photo {
+    display: none;
+  }
+}
 </style>
