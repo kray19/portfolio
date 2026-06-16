@@ -3,9 +3,9 @@ import rocketInterns from '../assets/rocket_interns.png'
 import rocketTeam from '../assets/rocket_team.png'
 import acxiomInterns from '../assets/acxiom_interns.png'
 import atuMoveIn from '../assets/ATU_moveinTeam2025.png'
-import rocketSoftwareLogo from 'src/assets/rocket_software_logo.jfif'
-import acxiomLogo from 'src/assets/acxiom_logo.jfif'
-import atuLogo from 'src/assets/arkansas_tech_university_logo.jfif'
+import rocketSoftwareLogo from '../assets/rocket_software_logo.jfif'
+import acxiomLogo from '../assets/acxiom_logo.jfif'
+import atuLogo from '../assets/arkansas_tech_university_logo.jfif'
 
 // ── Experience entries ───────────────────────────────────────
 const experience = [

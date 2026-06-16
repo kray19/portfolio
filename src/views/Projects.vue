@@ -1,7 +1,7 @@
 <script setup>
-import ASSDataPres from 'src/assets/ASSDataPres.jpg'
-import collegeMarket from 'src/assets/college_market_group.png'
-import housingModel from 'src/assets/heat_map_housing.png'
+import ASSDataPres from '../assets/ASSDataPres.jpg'
+import collegeMarket from '../assets/college_market_group.png'
+import housingModel from '../assets/heat_map_housing.png'
 const projects = [ 
   {
     id: 1,
