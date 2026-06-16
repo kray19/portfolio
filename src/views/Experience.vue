@@ -1,18 +1,6 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-// ── Carousel slides ──────────────────────────────────────────
-// Add more slides by copying one of these objects and updating the values.
-// Drop your images into src/assets/ and update the src field.
-const slides = [
-  { id: 1, label: 'Rocket Software',   src: 'src/assets/rocket_team.png' },
-  { id: 2, label: 'Rocket Software2',   src: 'src/assets/rocket_interns.png' },
-  { id: 3, label: 'Acxiom', src: 'src/assets/acxiom_interns.png' },
-  { id: 4, label: 'ATU',  src: 'src/assets/ATU_2025.png' },
-]
 
 // ── Experience entries ───────────────────────────────────────
-// Add more jobs by copying one of these objects and updating the values.
 const experience = [
   {
     id: 1,
@@ -28,7 +16,8 @@ const experience = [
       'Contributed to a documentation revival initiative, rewriting and modernizing outdated customer-facing content to improve clarity, accuracy, and usability.',
       'Represented the engineering team by presenting product functionality and day-to-day development work to an intern class.',   
     ],
-    photo: 'src/assets/rocket_software_logo.jfif', // e.g. '../assets/job1.jpg'
+    logo: 'src/assets/rocket_software_logo.jfif', 
+    photos: ['src/assets/rocket_team.png', 'src/assets/rocket_interns.png']
   },
   {
     id: 2,
@@ -42,7 +31,8 @@ const experience = [
       'Supported mentor in managing and resolving support tickets, gaining hands-on exposure to enterprise production environments and incident management workflows.',
       'Utilized Jira for recording, tracking, and swiftly resolving issues and tasks.',
     ],
-    photo: 'src/assets/acxiom_logo.jfif',
+    logo: 'src/assets/acxiom_logo.jfif',
+    photos: ['src/assets/acxiom_interns.png'],
   },
   {
     id: 3,
@@ -57,7 +47,7 @@ const experience = [
       'Coordinated with external stakeholders to investigate data discrepancies, hypothesize root causes, and recommend corrective actions.',
       'Worked with CSV, Excel, and Visual Basic workflows within a collaborative, mentor-guided team environment.'
     ],
-    photo: 'src/assets/acxiom_logo.jfif',
+    logo: 'src/assets/acxiom_logo.jfif',
   },
   {
     id: 4,
@@ -72,78 +62,15 @@ const experience = [
       'Trained new staff members on university systems, administrative workflows, and customer service procedures.',
       'Led departmental projects aimed at improving team processes and operational efficiency.',
     ],
-    photo: 'src/assets/arkansas_tech_university_logo.jfif',
+    logo: 'src/assets/arkansas_tech_university_logo.jfif',
+    photos: ['src/assets/ATU_2025.png'],
   },
 ]
 
-// ── Carousel logic ───────────────────────────────────────────
-const current = ref(0)
-let timer = null
-
-function next() {
-  current.value = (current.value + 1) % slides.length
-}
-function prev() {
-  current.value = (current.value - 1 + slides.length) % slides.length
-}
-function goTo(index) {
-  current.value = index
-}
-function startTimer() {
-  timer = setInterval(next, 4000)
-}
-function stopTimer() {
-  clearInterval(timer)
-}
-
-onMounted(startTimer)
-onUnmounted(stopTimer)
 </script>
 
 <template>
   <main class="experience">
-
-    <!-- CAROUSEL -->
-    <section
-      class="carousel"
-      @mouseenter="stopTimer"
-      @mouseleave="startTimer"
-    >
-      <div class="carousel__track">
-        <div
-          v-for="(slide, index) in slides"
-          :key="slide.id"
-          class="carousel__slide"
-          :class="{ active: index === current }"
-        >
-          <img
-            v-if="slide.src"
-            :src="slide.src"
-            :alt="slide.label"
-            class="carousel__img"
-          />
-          <div v-else class="carousel__placeholder">
-            <span>{{ slide.label }}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Arrows -->
-      <button class="carousel__arrow carousel__arrow--prev" @click="prev">&#8592;</button>
-      <button class="carousel__arrow carousel__arrow--next" @click="next">&#8594;</button>
-
-      <!-- Dots -->
-      <div class="carousel__dots">
-        <button
-          v-for="(slide, index) in slides"
-          :key="slide.id"
-          class="carousel__dot"
-          :class="{ active: index === current }"
-          @click="goTo(index)"
-          :aria-label="`Go to slide ${index + 1}`"
-        />
-      </div>
-    </section>
 
     <!-- PAGE TITLE -->
     <section class="exp-hero">
@@ -169,8 +96,8 @@ onUnmounted(stopTimer)
             </div>
             <div class="entry__photo">
               <img
-                v-if="job.photo"
-                :src="job.photo"
+                v-if="job.logo"
+                :src="job.logo"
                 :alt="job.company"
               />
               <div v-else class="entry__photo-placeholder">
@@ -186,7 +113,15 @@ onUnmounted(stopTimer)
               {{ bullet }}
             </li>
           </ul>
-
+          <div v-if="job.photos && job.photos.length" class="entry__photos">
+            <div
+              v-for="(photo, index) in job.photos"
+              :key="index"
+              class="entry__photo-item"
+            >
+              <img :src="photo" :alt="`${job.company} photo ${index + 1}`" />
+            </div>
+          </div>
           <div class="entry__divider"></div>
         </article>
       </div>
@@ -232,7 +167,7 @@ onUnmounted(stopTimer)
 .carousel__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 .carousel__placeholder {
@@ -348,6 +283,8 @@ onUnmounted(stopTimer)
 .entry__photo img {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center top;
+  transition: transform 0.3s ease;
 }
 .entry__photo-placeholder {
   width: 100%; height: 100%;
@@ -358,6 +295,26 @@ onUnmounted(stopTimer)
   font-family: var(--serif);
   font-size: 2rem;
   color: var(--sand);
+}
+.entry__photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.entry__photo-item {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+.entry__photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.entry__photo-item:hover img {
+  transform: scale(1.03);
 }
 .entry__overview {
   color: var(--stone);
